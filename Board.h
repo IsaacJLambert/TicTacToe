@@ -7,7 +7,6 @@ class Board {
 public:
     Board() { resetBoard(); }
     bool getState() { return gameState; }
-    void setStateWin() { gameState = true; }
     void resetBoard() {
         one = '1';
         two = '2';
@@ -132,6 +131,7 @@ public:
             if(one == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //456
         else if((four == five) && (five == six)) {
@@ -141,6 +141,7 @@ public:
             if(four == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //789
         else if((seven == eight) && (eight == nine)) {
@@ -150,6 +151,7 @@ public:
             if(seven == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //147
         else if((one == four) && (four == seven)) {
@@ -159,6 +161,7 @@ public:
             if(four == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //258
         else if((two == five) && (five == eight)) {
@@ -168,6 +171,7 @@ public:
             if(two == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //369
         else if((three == six) && (six == nine)) {
@@ -177,6 +181,7 @@ public:
             if(three == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //159
         else if((one == five) && (five == nine)) {
@@ -186,6 +191,7 @@ public:
             if(one == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //357
         else if((three == five) && (five == seven)) {
@@ -195,6 +201,7 @@ public:
             if(three == 'O') {
                 playerTwoWin = true;
             }
+            gameState = true;
         }
         //tie?
         else if(checkTie()) {
