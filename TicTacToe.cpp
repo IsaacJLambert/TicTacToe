@@ -43,11 +43,10 @@ int main() {
                 ++gameBoard;
                 //verify win conditions
                 gameBoard.verifyWin();
-                if(gameBoard.getState()) {
-                    gameBoard.getPlayer1Win();
+                if(gameBoard.getState() == true) {
                     break;
                 }
-                else if(gameBoard.getTie()) {
+                else if(gameBoard.getTie() == true) {
                     break;
                 }
                 //display new board
@@ -68,11 +67,10 @@ int main() {
                 ++gameBoard;
                 //verify win conditions
                 gameBoard.verifyWin();
-                if(gameBoard.getState()) {
-                    gameBoard.getPlayer2Win();
+                if(gameBoard.getState() == true) {
                     break;
                 }
-                else if(gameBoard.getTie()){
+                else if(gameBoard.getTie() == true){
                     break;
                 }
             }
@@ -95,7 +93,7 @@ int main() {
                 gameBoard.drawComp();
 
                 //TEMP
-                gameBoard.setStateWin();
+                //gameBoard.setStateWin();
             }
              //present winner
             gameBoard.drawPlayer();
