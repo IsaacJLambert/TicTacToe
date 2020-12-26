@@ -5,7 +5,10 @@ using namespace std;
 
 class Board {
 public:
-    Board() {
+    Board() { resetBoard(); }
+    bool getState() { return gameState; }
+    void setStateWin() { gameState = true; }
+    void resetBoard() {
         one = '1';
         two = '2';
         three = '3';
@@ -17,10 +20,19 @@ public:
         nine = '9';
         playerOneWin = false;
         playerTwoWin = false;
+        gameState = false;
+        }
+    void drawComp() {
+        cout << "\n\n\tTic-Tac-Toe\n\n";
+        cout << "Player (X) -- Computer (O)\n\n";
+        drawBoard();
     }
-    void drawBoard() {
+    void drawPlayer() {
         cout << "\n\n\tTic-Tac-Toe\n\n";
         cout << "Player 1 (X) -- Player 2 (O)\n\n";
+        drawBoard();
+    }
+    void drawBoard() {
         //draw board
         //first row
         cout << "     |     |     " << endl;
@@ -50,6 +62,7 @@ private:
     char nine;
     bool playerOneWin;
     bool playerTwoWin;
+    bool gameState;
 };
 
 #endif
