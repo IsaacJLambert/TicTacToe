@@ -65,6 +65,7 @@ public:
             nine = 'X';
             break;
         default:
+        //imvalid input
             throw true;
             break;
         }

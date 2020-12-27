@@ -25,20 +25,26 @@ int main() {
             while (gameBoard.getState() == false) {
                 int playerOneInput;
                 int playerTwoInput;
+                bool error = false;
                 //display board
                 gameBoard.drawPlayer();
                 //player 1 input
                 cout << "Player 1 selection: ";
                 do{
+                    error = false;
                     try {
                         cin >> playerOneInput;
                         gameBoard.updateMove1(playerOneInput);
                     }
                     catch(bool invalidInput){
-                        cout << "\nInvalid input\n";
+                        cin.clear();
+                        cin.ignore();
+                        cout << "Invalid input\n";
+                        cout << "Player 1 selection: ";
+                        error = true;
                     }
                 }
-                while(invalidInput);
+                while(error);
                 //increment moves
                 ++gameBoard;
                 //verify win conditions
@@ -54,15 +60,20 @@ int main() {
                 //player 2 input
                 cout << "Player 2 selection: ";
                 do{
+                    error = false;
                     try {
                         cin >> playerTwoInput;
                         gameBoard.updateMove2(playerTwoInput);
                     }
                     catch(bool invalidInput){
-                        cout << "\nInvalid input\n";
+                        cin.clear();
+                        cin.ignore();
+                        cout << "Invalid input\n";
+                        cout << "Player 2 selection: ";
+                        error = true;
                     }
                 }
-                while(invalidInput);
+                while(error);
                 //increment moves
                 ++gameBoard;
                 //verify win conditions
