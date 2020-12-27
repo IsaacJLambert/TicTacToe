@@ -1,2 +1,2 @@
 # TicTacToe
-Simple 2 player Tic Tac Toe game played in the terminal
+Simple Player vs Player or Player vs Computer Tic Tac Toe game played in the terminal
