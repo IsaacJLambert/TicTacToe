@@ -24,7 +24,7 @@ int computerMoveEasy(Board gameBoard) {
     while(rollAgain);
     return move;
 }
-int computerMoveMedum() {
+int computerMoveMedium() {
     //TO DO
     return 0;
 }
