@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Board.h"
+#include "Computer.h"
 
 using namespace std;
 
@@ -100,11 +101,53 @@ int main() {
         else if(menuInput == "2") {
             //Player vs Computer
             while (gameBoard.getState() == false) {
+                int playerOneInput;
+                int playerTwoInput;
+                bool error = false;
+                Computer computerAI;
                 //display board
                 gameBoard.drawComp();
-
-                //TEMP
-                //gameBoard.setStateWin();
+                //player 1 input
+                cout << "Player selection: ";
+                do{
+                    error = false;
+                    try {
+                        cin >> playerOneInput;
+                        gameBoard.updateMove1(playerOneInput);
+                    }
+                    catch(bool invalidInput){
+                        cin.clear();
+                        cin.ignore();
+                        cout << "Invalid input\n";
+                        cout << "Player selection: ";
+                        error = true;
+                    }
+                }
+                while(error);
+                //increment moves
+                ++gameBoard;
+                //verify win conditions
+                gameBoard.verifyWin();
+                if(gameBoard.getState() == true) {
+                    break;
+                }
+                else if(gameBoard.getTie() == true) {
+                    break;
+                }
+                //display new board
+                gameBoard.drawComp();
+                //computer input
+                gameBoard.updateMove2(computerAI.computerMoveEasy(gameBoard));
+                //increment moves
+                ++gameBoard;
+                //verify win conditions
+                gameBoard.verifyWin();
+                if(gameBoard.getState() == true) {
+                    break;
+                }
+                else if(gameBoard.getTie() == true){
+                    break;
+                }
             }
              //present winner
             gameBoard.drawPlayer();
