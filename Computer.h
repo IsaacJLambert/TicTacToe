@@ -24,6 +24,10 @@ int computerMoveEasy(Board gameBoard) {
     while(rollAgain);
     return move;
 }
+int computerMoveMedum() {
+    //TO DO
+    return 0;
+}
 int computerMoveHard() {
     //TO DO
     return 0;
