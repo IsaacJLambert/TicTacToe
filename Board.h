@@ -8,15 +8,15 @@ public:
     Board() { resetBoard(); }
     bool getState() { return gameState; }
     void resetBoard() {
-        one = '1';
-        two = '2';
-        three = '3';
-        four = '4';
-        five = '5';
-        six = '6';
-        seven = '7';
-        eight = '8';
-        nine = '9';
+        board[0] = '1';
+        board[1] = '2';
+        board[2] = '3';
+        board[3] = '4';
+        board[4] = '5';
+        board[5] = '6';
+        board[6] = '7';
+        board[7] = '8';
+        board[8] = '9';
         moves = 0;
         playerOneWin = false;
         playerTwoWin = false;
@@ -38,31 +38,31 @@ public:
     void updateMove1(int input){
         switch (input) {
         case 1:
-            one = 'X';
+            board[0] = 'X';
             break;
         case 2:
-            two = 'X';
+            board[1] = 'X';
             break;
         case 3:
-            three = 'X';
+            board[2] = 'X';
             break;
         case 4:
-            four = 'X';
+            board[3] = 'X';
             break;
         case 5:
-            five = 'X';
+            board[4] = 'X';
             break;
         case 6:
-            six = 'X';
+            board[5] = 'X';
             break;
         case 7:
-            seven = 'X';
+            board[6] = 'X';
             break;
         case 8:
-            eight = 'X';
+            board[7] = 'X';
             break;
         case 9:
-            nine = 'X';
+            board[8] = 'X';
             break;
         default:
         //invalid input
@@ -73,31 +73,31 @@ public:
     void updateMove2(int input){
         switch (input) {
         case 1:
-            one = 'O';
+            board[0] = 'O';
             break;
         case 2:
-            two = 'O';
+            board[1] = 'O';
             break;
         case 3:
-            three = 'O';
+            board[2] = 'O';
             break;
         case 4:
-            four = 'O';
+            board[3] = 'O';
             break;
         case 5:
-            five = 'O';
+            board[4] = 'O';
             break;
         case 6:
-            six = 'O';
+            board[5] = 'O';
             break;
         case 7:
-            seven = 'O';
+            board[6] = 'O';
             break;
         case 8:
-            eight = 'O';
+            board[7] = 'O';
             break;
         case 9:
-            nine = 'O';
+            board[8] = 'O';
             break;
         default:
             throw true;
@@ -110,96 +110,96 @@ public:
         //draw board
         //first row
         cout << "     |     |     " << endl;
-        cout << "  " << one << "  |  " << two << "  |  " << three << "  " << endl;
+        cout << "  " << board[0] << "  |  " << board[1] << "  |  " << board[2] << "  " << endl;
         cout << "_____|_____|_____" << endl;
 
         //second row
         cout << "     |     |     " << endl;
-        cout << "  " << four << "  |  " << five << "  |  " << six << "  " << endl;
+        cout << "  " << board[3] << "  |  " << board[4] << "  |  " << board[5] << "  " << endl;
         cout << "_____|_____|_____" << endl;
 
         //third row
         cout << "     |     |     " << endl;
-        cout << "  " << seven << "  |  " << eight << "  |  " << nine << "  " << endl;
+        cout << "  " << board[6] << "  |  " << board[7] << "  |  " << board[8] << "  " << endl;
         cout << "     |     |     " << endl;
     }
     void verifyWin() {
         //123
-        if((one == two) && (two == three)) {
-            if(one == 'X') {
+        if((board[0] == board[1]) && (board[1] == board[2])) {
+            if(board[0] == 'X') {
                 playerOneWin = true;
             }
-            if(one == 'O') {
+            if(board[0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //456
-        else if((four == five) && (five == six)) {
-            if(four == 'X') {
+        else if((board[3] == board[4]) && (board[4] == board[5])) {
+            if(board[3] == 'X') {
                 playerOneWin = true;
             }
-            if(four == 'O') {
+            if(board[3] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //789
-        else if((seven == eight) && (eight == nine)) {
-            if(seven == 'X') {
+        else if((board[6] == board[7]) && (board[7] == board[8])) {
+            if(board[6] == 'X') {
                 playerOneWin = true;
             }
-            if(seven == 'O') {
+            if(board[6] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //147
-        else if((one == four) && (four == seven)) {
-            if(four == 'X') {
+        else if((board[0] == board[3]) && (board[3] == board[6])) {
+            if(board[3] == 'X') {
                 playerOneWin = true;
             }
-            if(four == 'O') {
+            if(board[3] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //258
-        else if((two == five) && (five == eight)) {
-            if(two == 'X') {
+        else if((board[1] == board[4]) && (board[4] == board[7])) {
+            if(board[1] == 'X') {
                 playerOneWin = true;
             }
-            if(two == 'O') {
+            if(board[1] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //369
-        else if((three == six) && (six == nine)) {
-            if(three == 'X') {
+        else if((board[2] == board[5]) && (board[5] == board[8])) {
+            if(board[2] == 'X') {
                 playerOneWin = true;
             }
-            if(three == 'O') {
+            if(board[2] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //159
-        else if((one == five) && (five == nine)) {
-            if(one == 'X') {
+        else if((board[0] == board[4]) && (board[4] == board[8])) {
+            if(board[0] == 'X') {
                 playerOneWin = true;
             }
-            if(one == 'O') {
+            if(board[0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //357
-        else if((three == five) && (five == seven)) {
-            if(three == 'X') {
+        else if((board[2] == board[4]) && (board[4] == board[6])) {
+            if(board[2] == 'X') {
                 playerOneWin = true;
             }
-            if(three == 'O') {
+            if(board[2] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
@@ -221,31 +221,31 @@ public:
     char getQuadrant(int position) {
         switch(position) {
             case 1:
-                return one; 
+                return board[0]; 
                 break;
             case 2:
-                return two; 
+                return board[1]; 
                 break;
             case 3:
-                return three; 
+                return board[2]; 
                 break;
             case 4:
-                return four; 
+                return board[3]; 
                 break;
             case 5:
-                return five; 
+                return board[4]; 
                 break;
             case 6:
-                return six; 
+                return board[5]; 
                 break;
             case 7:
-                return seven; 
+                return board[6]; 
                 break;
             case 8:
-                return eight; 
+                return board[7]; 
                 break;
             case 9:
-                return nine; 
+                return board[8]; 
                 break;
             default:
                 return 0;
@@ -256,15 +256,7 @@ public:
         moves++;
     }
 private:
-    char one;
-    char two;
-    char three;
-    char four;
-    char five;
-    char six;
-    char seven;
-    char eight;
-    char nine;
+    char board[9];
     bool playerOneWin;
     bool playerTwoWin;
     bool tie;
