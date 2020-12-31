@@ -53,20 +53,29 @@ public:
     }
     int smartLogic(Board gameBoard) {
         int move;
-        if((gameBoard.getQuadrant(1) == 'O') && (gameBoard.getQuadrant(2) == 'O')){
-        return 3;
+        //see if computer can win in 1 move
+        move = compWinMove(gameBoard);
+        if(compHasWinMove) {
+            return move;
         }
+        //block player if they have winning move
+        move = playerWinMove(gameBoard);
+        if(playerHasWinMove){
+            return move;
+        }
+        //else play near previous play
+
         return 1;
     }
     int playerWinMove(Board gameBoard) {
         //determine if player has a winning move
-        
-        return 5;
+        int move;
+        return move;
     }
     int compWinMove(Board gameBoard) {
         //determine if comp has a winning move
-
-        return 5;
+        int move;
+        return move;
     }
 private:
     bool playerHasWinMove;

@@ -8,15 +8,15 @@ public:
     Board() { resetBoard(); }
     bool getState() { return gameState; }
     void resetBoard() {
-        board[0] = '1';
-        board[1] = '2';
-        board[2] = '3';
-        board[3] = '4';
-        board[4] = '5';
-        board[5] = '6';
-        board[6] = '7';
-        board[7] = '8';
-        board[8] = '9';
+        board[0][0] = '1';
+        board[0][1] = '2';
+        board[0][2] = '3';
+        board[1][0] = '4';
+        board[1][1] = '5';
+        board[1][2] = '6';
+        board[2][0] = '7';
+        board[2][1] = '8';
+        board[2][2] = '9';
         moves = 0;
         playerOneWin = false;
         playerTwoWin = false;
@@ -38,31 +38,31 @@ public:
     void updateMove1(int input){
         switch (input) {
         case 1:
-            board[0] = 'X';
+            board[0][0] = 'X';
             break;
         case 2:
-            board[1] = 'X';
+            board[0][1] = 'X';
             break;
         case 3:
-            board[2] = 'X';
+            board[0][2] = 'X';
             break;
         case 4:
-            board[3] = 'X';
+            board[1][0] = 'X';
             break;
         case 5:
-            board[4] = 'X';
+            board[1][1] = 'X';
             break;
         case 6:
-            board[5] = 'X';
+            board[1][2] = 'X';
             break;
         case 7:
-            board[6] = 'X';
+            board[2][0] = 'X';
             break;
         case 8:
-            board[7] = 'X';
+            board[2][1] = 'X';
             break;
         case 9:
-            board[8] = 'X';
+            board[2][2] = 'X';
             break;
         default:
         //invalid input
@@ -73,31 +73,31 @@ public:
     void updateMove2(int input){
         switch (input) {
         case 1:
-            board[0] = 'O';
+            board[0][0] = 'O';
             break;
         case 2:
-            board[1] = 'O';
+            board[0][1] = 'O';
             break;
         case 3:
-            board[2] = 'O';
+            board[0][2] = 'O';
             break;
         case 4:
-            board[3] = 'O';
+            board[1][0] = 'O';
             break;
         case 5:
-            board[4] = 'O';
+            board[1][1] = 'O';
             break;
         case 6:
-            board[5] = 'O';
+            board[1][2] = 'O';
             break;
         case 7:
-            board[6] = 'O';
+            board[2][0] = 'O';
             break;
         case 8:
-            board[7] = 'O';
+            board[2][1] = 'O';
             break;
         case 9:
-            board[8] = 'O';
+            board[2][2] = 'O';
             break;
         default:
             throw true;
@@ -110,96 +110,96 @@ public:
         //draw board
         //first row
         cout << "     |     |     " << endl;
-        cout << "  " << board[0] << "  |  " << board[1] << "  |  " << board[2] << "  " << endl;
+        cout << "  " << board[0][0] << "  |  " << board[0][1] << "  |  " << board[0][2] << "  " << endl;
         cout << "_____|_____|_____" << endl;
 
         //second row
         cout << "     |     |     " << endl;
-        cout << "  " << board[3] << "  |  " << board[4] << "  |  " << board[5] << "  " << endl;
+        cout << "  " << board[1][0] << "  |  " << board[1][1] << "  |  " << board[1][2] << "  " << endl;
         cout << "_____|_____|_____" << endl;
 
         //third row
         cout << "     |     |     " << endl;
-        cout << "  " << board[6] << "  |  " << board[7] << "  |  " << board[8] << "  " << endl;
+        cout << "  " << board[2][0] << "  |  " << board[2][1] << "  |  " << board[2][2] << "  " << endl;
         cout << "     |     |     " << endl;
     }
     void verifyWin() {
         //123
-        if((board[0] == board[1]) && (board[1] == board[2])) {
-            if(board[0] == 'X') {
+        if((board[0][0] == board[0][1]) && (board[0][1] == board[0][2])) {
+            if(board[0][0] == 'X') {
                 playerOneWin = true;
             }
-            if(board[0] == 'O') {
+            if(board[0][0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //456
-        else if((board[3] == board[4]) && (board[4] == board[5])) {
-            if(board[3] == 'X') {
+        else if((board[1][0] == board[1][1]) && (board[1][1] == board[1][2])) {
+            if(board[1][0] == 'X') {
                 playerOneWin = true;
             }
-            if(board[3] == 'O') {
+            if(board[1][0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //789
-        else if((board[6] == board[7]) && (board[7] == board[8])) {
-            if(board[6] == 'X') {
+        else if((board[2][0] == board[2][1]) && (board[2][1] == board[2][2])) {
+            if(board[2][0] == 'X') {
                 playerOneWin = true;
             }
-            if(board[6] == 'O') {
+            if(board[2][0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //147
-        else if((board[0] == board[3]) && (board[3] == board[6])) {
-            if(board[3] == 'X') {
+        else if((board[0][0] == board[1][0]) && (board[1][0] == board[2][0])) {
+            if(board[1][0] == 'X') {
                 playerOneWin = true;
             }
-            if(board[3] == 'O') {
+            if(board[1][0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //258
-        else if((board[1] == board[4]) && (board[4] == board[7])) {
-            if(board[1] == 'X') {
+        else if((board[0][1] == board[1][1]) && (board[1][1] == board[2][1])) {
+            if(board[0][1] == 'X') {
                 playerOneWin = true;
             }
-            if(board[1] == 'O') {
+            if(board[0][1] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //369
-        else if((board[2] == board[5]) && (board[5] == board[8])) {
-            if(board[2] == 'X') {
+        else if((board[0][2] == board[1][2]) && (board[1][2] == board[2][2])) {
+            if(board[0][2] == 'X') {
                 playerOneWin = true;
             }
-            if(board[2] == 'O') {
+            if(board[0][2] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //159
-        else if((board[0] == board[4]) && (board[4] == board[8])) {
-            if(board[0] == 'X') {
+        else if((board[0][0] == board[1][1]) && (board[1][1] == board[2][2])) {
+            if(board[0][0] == 'X') {
                 playerOneWin = true;
             }
-            if(board[0] == 'O') {
+            if(board[0][0] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
         }
         //357
-        else if((board[2] == board[4]) && (board[4] == board[6])) {
-            if(board[2] == 'X') {
+        else if((board[0][2] == board[1][1]) && (board[1][1] == board[2][0])) {
+            if(board[0][2] == 'X') {
                 playerOneWin = true;
             }
-            if(board[2] == 'O') {
+            if(board[0][2] == 'O') {
                 playerTwoWin = true;
             }
             gameState = true;
@@ -221,31 +221,31 @@ public:
     char getQuadrant(int position) {
         switch(position) {
             case 1:
-                return board[0]; 
+                return board[0][0]; 
                 break;
             case 2:
-                return board[1]; 
+                return board[0][1]; 
                 break;
             case 3:
-                return board[2]; 
+                return board[0][2]; 
                 break;
             case 4:
-                return board[3]; 
+                return board[1][0]; 
                 break;
             case 5:
-                return board[4]; 
+                return board[1][1]; 
                 break;
             case 6:
-                return board[5]; 
+                return board[1][2]; 
                 break;
             case 7:
-                return board[6]; 
+                return board[2][0]; 
                 break;
             case 8:
-                return board[7]; 
+                return board[2][1]; 
                 break;
             case 9:
-                return board[8]; 
+                return board[2][2]; 
                 break;
             default:
                 return 0;
@@ -256,7 +256,7 @@ public:
         moves++;
     }
 private:
-    char board[9];
+    char board[3][3];
     bool playerOneWin;
     bool playerTwoWin;
     bool tie;
